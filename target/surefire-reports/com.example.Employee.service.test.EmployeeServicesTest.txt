@@ -1,0 +1,60 @@
+-------------------------------------------------------------------------------
+Test set: com.example.Employee.service.test.EmployeeServicesTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.058 s <<< FAILURE! -- in com.example.Employee.service.test.EmployeeServicesTest
+com.example.Employee.service.test.EmployeeServicesTest.testSaveEmployee -- Time elapsed: 0.030 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.Employee.repository.EmployeeRepository.save(Object)" because "this.employeeRepository" is null
+	at com.example.Employee.service.test.EmployeeServicesTest.testSaveEmployee(EmployeeServicesTest.java:39)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+com.example.Employee.service.test.EmployeeServicesTest.testDeleteEmployee -- Time elapsed: 0.009 s <<< ERROR!
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+
+Misplaced or misused argument matcher detected here:
+
+-> at com.example.Employee.service.test.EmployeeServicesTest.testSaveEmployee(EmployeeServicesTest.java:39)
+
+You cannot use argument matchers outside of verification or stubbing.
+Examples of correct usage of argument matchers:
+    when(mock.get(anyInt())).thenReturn(null);
+    doThrow(new RuntimeException()).when(mock).someVoidMethod(any());
+    verify(mock).someMethod(contains("foo"))
+
+This message may appear after an NullPointerException if the last matcher is returning an object 
+like any() but the stubbed method signature expect a primitive argument, in this case,
+use primitive alternatives.
+    when(mock.get(any())); // bad use, will raise NPE
+    when(mock.get(anyInt())); // correct usage use
+
+Also, this error might show up because you use argument matchers with methods that cannot be mocked.
+Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().
+Mocking methods declared on non-public parent classes is not supported.
+
+	at com.example.Employee.service.test.EmployeeServicesTest.testDeleteEmployee(EmployeeServicesTest.java:87)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+com.example.Employee.service.test.EmployeeServicesTest.testGetEmployeeById -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.Employee.repository.EmployeeRepository.findById(Object)" because "this.employeeRepository" is null
+	at com.example.Employee.service.test.EmployeeServicesTest.testGetEmployeeById(EmployeeServicesTest.java:55)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+com.example.Employee.service.test.EmployeeServicesTest.testUpdateEmployee -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.Employee.repository.EmployeeRepository.existsById(Object)" because "this.employeeRepository" is null
+	at com.example.Employee.service.test.EmployeeServicesTest.testUpdateEmployee(EmployeeServicesTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+com.example.Employee.service.test.EmployeeServicesTest.testGetAllEmployees -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.Employee.repository.EmployeeRepository.findAll()" because "this.employeeRepository" is null
+	at com.example.Employee.service.test.EmployeeServicesTest.testGetAllEmployees(EmployeeServicesTest.java:101)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
